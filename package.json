@@ -1,0 +1,41 @@
+{
+	"name": "arkant-sh",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+	},
+	"devDependencies": {
+		"@iconify/svelte": "^5.2.2",
+		"@sveltejs/adapter-vercel": "^6.3.3",
+		"@sveltejs/kit": "^2.63.0",
+		"@sveltejs/vite-plugin-svelte": "^7.1.2",
+		"@tailwindcss/forms": "^0.5.11",
+		"@tailwindcss/typography": "^0.5.19",
+		"@tailwindcss/vite": "^4.3.0",
+		"@types/three": "^0.185.4",
+		"svelte": "^5.56.1",
+		"svelte-check": "^4.6.0",
+		"tailwindcss": "^4.3.0",
+		"typescript": "^6.0.3",
+		"vite": "^8.0.16"
+	},
+	"dependencies": {
+		"@threlte/core": "^8.6.0",
+		"@threlte/extras": "^9.21.1",
+		"clsx": "^2.1.1",
+		"gsap": "^3.15.0",
+		"mode-watcher": "^1.1.0",
+		"tailwind-merge": "^3.6.0",
+		"three": "^0.185.1"
+	},
+	"allowScripts": {
+		"esbuild@0.28.2": true
+	}
+}
