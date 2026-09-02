@@ -22,7 +22,7 @@
     class="flex items-center justify-between px-4 py-2 border-b border-text-muted/10 bg-bg/40"
   >
     <span class="font-mono text-xs text-text-muted truncate">
-      {project.title.toLowerCase().replace(/\s+/g, "-")}.tsx
+      {project.title.toLowerCase().replace(/\s+/g, "-")}
     </span>
     {#if project.status}
       <Badge status={project.status} />
