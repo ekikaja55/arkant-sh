@@ -1,8 +1,12 @@
 <script lang="ts">
   import TypedText from "$lib/components/ui/TypedText.svelte";
   import { cvData } from "$lib/data/cv";
+  import { registerGsap, gsap } from "$lib/utils/animations";
   import { onMount } from "svelte";
   import { fly, fade } from "svelte/transition";
+
+  let heroSection = $state<HTMLElement>();
+  let wireframeWrapper = $state<HTMLElement>();
 
   let showTagline = $state(false);
   let WireframeScene = $state<any>(null);
@@ -11,9 +15,34 @@
     const mod = await import("$lib/components/three/WireframeScene.svelte");
     WireframeScene = mod.default;
   });
+
+  $effect(() => {
+    if (!heroSection || !wireframeWrapper) return;
+
+    const section = heroSection;
+    const wrapper = wireframeWrapper;
+
+    registerGsap();
+
+    const ctx = gsap.context(() => {
+      gsap.to(wrapper, {
+        y: 120,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+    }, section);
+
+    return () => ctx.revert();
+  });
 </script>
 
 <section
+  bind:this={heroSection}
   id="top"
   class="relative max-w-6xl mx-auto px-6 min-h-[85vh] flex items-center overflow-hidden"
 >
@@ -73,8 +102,8 @@
   </div>
 
   {#if WireframeScene}
-    <!-- aku adjust sendiri ketemu di -0.8% -->
     <div
+      bind:this={wireframeWrapper}
       class="hidden lg:block absolute right-[-0.8%] top-[55%] -translate-y-1/2 w-[42%] max-w-105 aspect-square pointer-events-none"
     >
       <WireframeScene />

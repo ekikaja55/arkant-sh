@@ -105,3 +105,13 @@ body {
   font-family: var(--font-sans);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+
+  a, button {
+    cursor: none;
+  }
+}

@@ -11,6 +11,7 @@
 </script>
 
 <article
+  data-cursor="lucide:eye"
   class="group relative rounded-lg border border-text-muted/15 bg-surface overflow-hidden transition-all duration-300 hover:border-accent-fn/40 hover:-translate-y-1"
   onmouseenter={() => (hovered = true)}
   onmouseleave={() => (hovered = false)}
