@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { mode } from "mode-watcher";
+  import { onMount } from 'svelte';
+  import { mode } from 'mode-watcher';
 
   let canvas: HTMLCanvasElement;
 
   onMount(() => {
-    const ctx = canvas.getContext("2d")!;
+    const ctx = canvas.getContext('2d')!;
     let raf: number;
     let width = 0;
     let height = 0;
@@ -31,20 +31,16 @@
         x: Math.random() * width,
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.25,
-        vy: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25
       }));
     }
 
     function tick() {
       ctx.clearRect(0, 0, width, height);
 
-      const isDark = mode.current === "dark";
-      const dotColor = isDark
-        ? "rgba(217, 119, 87, 0.95)"
-        : "rgba(194, 105, 77, 0.85)";
-      const lineColor = isDark
-        ? "rgba(163, 158, 146, 0.55)"
-        : "rgba(120, 117, 110, 0.45)";
+      const isDark = mode.current === 'dark';
+      const dotColor = isDark ? 'rgba(217, 119, 87, 0.4)' : 'rgba(194, 105, 77, 0.35)';
+      const lineColor = isDark ? 'rgba(163, 158, 146, 0.12)' : 'rgba(138, 133, 121, 0.12)';
 
       for (const p of points) {
         p.x += p.vx;
@@ -54,7 +50,7 @@
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, 2.6, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, 1.6, 0, Math.PI * 2);
         ctx.fillStyle = dotColor;
         ctx.fill();
       }
@@ -66,33 +62,33 @@
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < LINK_DIST) {
-            const opacityFactor = 1 - dist / LINK_DIST;
             ctx.beginPath();
             ctx.moveTo(points[i].x, points[i].y);
             ctx.lineTo(points[j].x, points[j].y);
             ctx.strokeStyle = lineColor;
-            ctx.lineWidth = 1.3;
-            ctx.globalAlpha = opacityFactor;
+            ctx.lineWidth = 1;
             ctx.stroke();
-            ctx.globalAlpha = 1;
           }
         }
       }
 
       raf = requestAnimationFrame(tick);
     }
+
     resize();
     init();
     tick();
 
-    window.addEventListener("resize", resize);
+    window.addEventListener('resize', resize);
 
     return () => {
       cancelAnimationFrame(raf);
-      window.removeEventListener("resize", resize);
+      window.removeEventListener('resize', resize);
     };
   });
 </script>
 
-<canvas bind:this={canvas} class="fixed inset-0 -z-10 pointer-events-none"
+<canvas
+  bind:this={canvas}
+  class="fixed inset-0 -z-10 pointer-events-none"
 ></canvas>
