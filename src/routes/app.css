@@ -62,45 +62,42 @@
 }
 
 :root {
-  --bg: #FAFAFA;
+  /* warm paper, bukan pure white — ciri khas Claude UI */
+  --bg: #FAF9F5;
   --surface: #FFFFFF;
-  --text: #1A1D23;
-  --text-muted: #6B7280;
+  --text: #2D2A26;
+  --text-muted: #78756E;
 
-  --accent-keyword: #9333B5;
-  --accent-string: #4B8B5E;
-  --accent-fn: #2E7DC4;
-  --accent-variable: #C15B45;
-  --accent-number: #A8752E;
+  /* signature Claude orange sebagai keyword, digelapkan biar kontras di atas putih */
+  --accent-keyword: #C2694D;
+  --accent-string: #5F8567;
+  --accent-fn: #4F7C99;
+  --accent-variable: #B36B54;
+  --accent-number: #A08344;
 
-  --nav-accent-fn: #2E7DC4;
-  --nav-accent-keyword: #9333B5;
-
-  --nav-icon: #4A5262;      /* light mode: sedikit lebih gelap dari default agar kebaca di atas putih */
-  --nav-accent-fn: #2E7DC4;
-  --nav-accent-keyword: #9333B5;
+  --nav-accent-fn: #4F7C99;
+  --nav-accent-keyword: #C2694D;
+  --nav-icon: #8A8579;
 }
 
 .dark {
- --bg: #0F141C;
-  --surface: #0A0D12;
-  --text: #E1E4E8;
-  --text-muted: #5C6370;
+  /* warm dark charcoal, bukan pure black/navy — ciri khas Claude dark mode */
+  --bg: #262624;
+  --surface: #30302E;
+  --text: #F5F4ED;
+  --text-muted: #A39E92;
 
-  --accent-keyword: #9333B5;
-  --accent-string: #4B8B5E;
-  --accent-fn: #2E7DC4;
-  --accent-variable: #C15B45;
-  --accent-number: #A8752E;
+  /* Claude orange versi terang buat kontras di gelap */
+  --accent-keyword: #D97757;
+  --accent-string: #87A987;
+  --accent-fn: #7FA8C9;
+  --accent-variable: #D18B6E;
+  --accent-number: #C9A868;
 
-  --nav-accent-fn: #61AFEF;
-  --nav-accent-keyword: #C678DD;
-
-   --nav-icon: #8B93A3;      /* dark mode: signifikan lebih terang dari text-muted (#5C6370) */
-  --nav-accent-fn: #61AFEF;
-  --nav-accent-keyword: #C678DD;
+  --nav-accent-fn: #7FA8C9;
+  --nav-accent-keyword: #D97757;
+  --nav-icon: #A39E92;
 }
-
 
 body {
   background-color: var(--color-bg);
@@ -108,5 +105,3 @@ body {
   font-family: var(--font-sans);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-

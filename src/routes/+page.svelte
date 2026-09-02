@@ -8,7 +8,7 @@
 
   const title = `${cvData.name} — ${cvData.role}`;
   const description = cvData.tagline;
-  const url = 'https://arkant-sh.vercel.app'; // sesuaikan domain final
+  const url = 'https://arkant-sh.vercel.app';
 </script>
 
 <svelte:head>
