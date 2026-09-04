@@ -12,7 +12,7 @@
 
 <BackgroundLines />
 <CustomCursor />
-<Nav />
+<!-- <Nav /> -->
 
 <main class="min-h-screen">
   {@render children()}
